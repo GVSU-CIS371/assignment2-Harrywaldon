@@ -2,7 +2,29 @@
   <Mug>
     <Cold v-if="isIced" />
     <Hot v-else />
-    <Contents>
+    <Contents v-if="currentSyrup.id === 's1' && currentCreamer.id === 'c1'">
+      <template v-slot:top>
+        <Base />
+      </template>
+      <template v-slot:mid>
+        <Base />
+      </template>
+      <template v-slot:bottom>
+        <Base />
+      </template>
+    </Contents>
+    <Contents v-else-if="currentSyrup.id === 's1' && currentCreamer.id !== 'c1'">
+      <template v-slot:top>
+        <Creamer />
+      </template>
+      <template v-slot:mid>
+        <Base />
+      </template>
+      <template v-slot:bottom>
+        <Base />
+      </template>
+    </Contents>
+    <Contents v-else >
       <template v-slot:top>
         <Creamer />
       </template>
@@ -23,6 +45,7 @@ import Base from "./Base.vue";
 import Creamer from "./Creamer.vue";
 import Hot from "./Hot.vue";
 import Cold from "./Cold.vue";
+import {currentBase, currentCreamer, currentSyrup} from "../stores/beverage";
 
 type Props = {
   isIced: boolean;
