@@ -45,7 +45,7 @@ import Base from "./Base.vue";
 import Creamer from "./Creamer.vue";
 import Hot from "./Hot.vue";
 import Cold from "./Cold.vue";
-import {currentBase, currentCreamer, currentSyrup} from "../stores/beverage";
+import {currentCreamer, currentSyrup} from "../stores/beverage";
 
 type Props = {
   isIced: boolean;
